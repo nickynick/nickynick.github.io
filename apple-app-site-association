@@ -5,6 +5,10 @@
             {
                 "appID": "UY9X52L298.com.pixty.Abu",
                 "paths": [ "*" ]
+            },
+            {
+                "appID": "UY9X52L298.com.pixty.Pixty",
+                "paths": [ "*" ]
             }
         ]
     }
