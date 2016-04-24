@@ -19,7 +19,7 @@ $(function() {
 
   $('.twitch-connect').click(function() {
     Twitch.login({
-      scope: ['user_read', 'channel_read']
+      scope: ['user_read']
     });
   })
 
@@ -37,9 +37,9 @@ $(function() {
     });
   })
 
-  $('#get-stream-key button').click(function() {
-    Twitch.api({method: 'channel'}, function(error, channel) {
-      $('#get-stream-key input').val(channel.stream_key);
+  $('#get-streams').click(function() {
+    Twitch.api({ method: 'streams/followed', params: { limit: 100, stream_type: 'live' } }, function(error, result) {
+      $('#get-streams-result').html(result.streams);
     });
   })
 });
