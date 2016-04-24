@@ -2,9 +2,10 @@ window.CLIENT_ID = 'f51444r0qklip2pyna1yp8x3byctadw';
 
 function refreshStreams() {
   Twitch.api({ method: 'streams/followed', params: { limit: 100, stream_type: 'live' } }, function(error, result) {
-    for (stream in result.streams) {
-      console.log(stream);
-      console.log(stream.channel);
+    var streams = result.streams
+    
+    for (i in streams) {
+      var stream = streams[i];      
 
       var streamListElement = document.getElementById('stream-list')
       while (streamListElement.firstChild) {
