@@ -1,15 +1,12 @@
 window.CLIENT_ID = 'f51444r0qklip2pyna1yp8x3byctadw';
 
-function clearStreams() {
-  var streamListElement = document.getElementById('stream-list')
-  while (streamListElement.firstChild) {
-    streamListElement.removeChild(streamListElement.firstChild);
-  }
-}
-
 function refreshStreams() {
-  Twitch.api({ method: 'streams/followed', params: { limit: 100, stream_type: 'live' } }, function(error, result) {
-    clearStreams();
+  Twitch.api({ method: 'streams/followed', params: { limit: 100, stream_type: 'live' } }, function(error, result) {  
+    var streamListElement = document.getElementById('stream-list');
+
+    while (streamListElement.firstChild) {
+      streamListElement.removeChild(streamListElement.firstChild);
+    }   
 
     for (i in result.streams) {
       var stream = result.streams[i];      
