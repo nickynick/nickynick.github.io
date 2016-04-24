@@ -16,7 +16,7 @@ function refreshStreams() {
       var channel = stream.channel;
 
       var streamElement = document.createElement('li');
-      streamElement.innerHTML = '<a href="html5player.html?channel=' + channel.name + '">' + channel.display_name + ' | ' + channel.status '</a>';
+      streamElement.innerHTML = '<a href="html5player.html?channel=' + channel.name + '">' + channel.display_name + ' | ' + channel.status + '</a>';
 
       streamListElement.appendChild(streamElement);
     }    
