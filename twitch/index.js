@@ -1,19 +1,22 @@
 window.CLIENT_ID = 'f51444r0qklip2pyna1yp8x3byctadw';
 
+function clearStreams() {
+  var streamListElement = document.getElementById('stream-list')
+  while (streamListElement.firstChild) {
+    streamListElement.removeChild(streamListElement.firstChild);
+  }
+}
+
 function refreshStreams() {
   Twitch.api({ method: 'streams/followed', params: { limit: 100, stream_type: 'live' } }, function(error, result) {
-    var streams = result.streams
-    
-    for (i in streams) {
-      var stream = streams[i];      
+    clearStreams();
 
-      var streamListElement = document.getElementById('stream-list')
-      while (streamListElement.firstChild) {
-        streamListElement.removeChild(streamListElement.firstChild);
-      }
+    for (i in result.streams) {
+      var stream = result.streams[i];      
+      var channel = stream.channel;
 
       var streamElement = document.createElement('li');
-      streamElement.innerHTML = '<a href="html5player.html?channel=' + stream.channel.name + '">' + stream.channel.display_name + '</a>';
+      streamElement.innerHTML = '<a href="html5player.html?channel=' + channel.name + '">' + channel.display_name + ' | ' + channel.status '</a>';
 
       streamListElement.appendChild(streamElement);
     }    
