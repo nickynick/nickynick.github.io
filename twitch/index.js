@@ -1,6 +1,6 @@
 window.CLIENT_ID = 'f51444r0qklip2pyna1yp8x3byctadw';
 
-function refreshStreams() {
+function refreshStreams() {  
   Twitch.api({ method: 'streams/followed', params: { limit: 100, stream_type: 'live' } }, function(error, result) {  
     var streamListElement = document.getElementById('stream-list');
 
@@ -21,6 +21,11 @@ function refreshStreams() {
 }
 
 $(function() {
+  // Patch Twitch JS SDK to use local storage instead of session storage.
+  if (window.localStorage != null) {
+    Twitch._storage = window.localStorage;
+  }
+
   // Initialize. If we are already logged in, there is no
   // need for the connect button
   Twitch.init({clientId: CLIENT_ID}, function(error, status) {
