@@ -30,13 +30,14 @@ function refreshStreams() {
 
     for (i in result.streams) {
       var streamElement = createStreamElement(result.streams[i]);
+      console.log(streamElement);
       streamListElement.appendChild(streamElement);
-
-      // ought to be enough for everyone, right?
-      for (j = 0; j < 10; j++) { 
-        streamListElement.appendChild(createSpacerElement());
-      } 
     }  
+
+    // ought to be enough for everyone, right?
+    for (j = 0; j < 10; j++) { 
+      streamListElement.appendChild(createSpacerElement());
+    }
   });
 }
 
