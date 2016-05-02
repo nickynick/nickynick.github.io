@@ -19,6 +19,8 @@ function createStreamElement(stream) {
     </div>
     `);
 
+  console.log(element);
+
   element.getElementsByClassName('cover')[0].setAttribute('src', stream.preview.medium);
   element.getElementsByClassName('title')[0].firstChild.textContent = stream.channel.status;
   element.getElementsByClassName('title')[0].firstChild.setAttribute('href', 'html5player.html?channel=' + channel.name);
