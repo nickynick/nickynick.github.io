@@ -11,13 +11,7 @@ function createSpacerElement() {
 }
 
 function createStreamElement(stream) {
-  var element = htmlToElement(`
-    <div class="item stream">
-      <img class="cover"/>
-      <p class="title"><a></a></p>
-      <p class="info"></p>
-    </div>
-    `);
+  var element = htmlToElement('<div class="item stream"><img class="cover"/><p class="title"><a></a></p><p class="info"></p></div>');
 
   console.log(element);
 
