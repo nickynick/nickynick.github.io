@@ -1,5 +1,32 @@
 window.CLIENT_ID = 'f51444r0qklip2pyna1yp8x3byctadw';
 
+function htmlToElement(html) {
+  var template = document.createElement('template');
+  template.innerHTML = html;
+  return template.content.firstChild;
+}
+
+function createSpacerElement() {
+  return htmlToElement('<div class="item spacer"></div>');
+}
+
+function createStreamElement(stream) {
+  var element = htmlToElement(`
+    <div class="item stream">
+      <img class="cover"/>
+      <p class="title"><a></a></p>
+      <p class="info"></p>
+    </div>
+    `);
+
+  element.getElementsByClassName('cover')[0].setAttribute('src', stream.preview.medium);
+  element.getElementsByClassName('title')[0].firstChild.textContent = stream.channel.status;
+  element.getElementsByClassName('title')[0].firstChild.setAttribute('href', 'html5player.html?channel=' + channel.name);
+  element.getElementsByClassName('info')[0].textContent = channel.display_name;
+
+  return element;
+}
+
 function refreshStreams() {  
   Twitch.api({ method: 'streams/followed', params: { limit: 100, stream_type: 'live' } }, function(error, result) {  
     var streamListElement = document.getElementById('stream-list');
@@ -12,11 +39,13 @@ function refreshStreams() {
       var stream = result.streams[i];      
       var channel = stream.channel;
 
-      var streamElement = document.createElement('li');
-      streamElement.innerHTML = '<a href="html5player.html?channel=' + channel.name + '">' + channel.display_name + ' | ' + channel.status + '</a>';
+      streamListElement.appendChild(createStreamElement(stream));
 
-      streamListElement.appendChild(streamElement);
-    }    
+      // ought to be enough for everyone, right?
+      for (j = 0; j < 10; j++) { 
+        streamListElement.appendChild(createSpacerElement());
+      } 
+    }  
   });
 }
 

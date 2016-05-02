@@ -1,3 +1,52 @@
+html {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
 .hidden {
   display: none;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.item {
+  flex: 1 0 200px;
+  min-width: 0;
+  max-width: 300px;
+}
+
+.spacer {
+  height: 0;
+  margin: 0 5px 0 5px;
+}
+
+.stream { 
+  margin: 5px 5px 10px 5px;
+}
+
+.stream .cover {
+  width: 100%;
+}
+
+.stream p {
+  margin: 5px 0 5px 0;
+
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.stream a {
+  text-decoration: none;
+}
+
+.stream .title {
+  font-size: 14px;
+}
+
+.stream .info {
+  font-size: 12px;
 }
