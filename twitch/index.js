@@ -14,8 +14,8 @@ function createStreamElement(stream) {
   return htmlToElement(`
     <div class="item stream">
       <img class="cover" src="${ stream.preview.medium }" />
-      <p class="title"><a href="${ 'html5player.html?channel=' + channel.name }">${ stream.channel.status }</a></p>
-      <p class="info">${ channel.display_name }</p>
+      <p class="title"><a href="${ 'html5player.html?channel=' + stream.channel.name }">${ stream.channel.status }</a></p>
+      <p class="info">${ stream.channel.display_name }</p>
     </div>
     `);
 }
@@ -29,10 +29,8 @@ function refreshStreams() {
     }   
 
     for (i in result.streams) {
-      var stream = result.streams[i];      
-      var channel = stream.channel;
-
-      streamListElement.appendChild(createStreamElement(stream));
+      var streamElement = createStreamElement(result.streams[i]);
+      streamListElement.appendChild(streamElement);
 
       // ought to be enough for everyone, right?
       for (j = 0; j < 10; j++) { 
