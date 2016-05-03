@@ -11,13 +11,14 @@ function createSpacerElement() {
 }
 
 function createStreamElement(stream) {
-  return htmlToElement(`
-    <div class="item stream">
-      <img class="cover" src="${ stream.preview.medium }" />
-      <p class="title"><a href="${ 'html5player.html?channel=' + stream.channel.name }">${ stream.channel.status }</a></p>
-      <p class="info">${ stream.channel.display_name }</p>
-    </div>
-    `);
+  // return htmlToElement(`
+  //   <div class="item stream">
+  //     <img class="cover" src="${ stream.preview.medium }" />
+  //     <p class="title"><a href="${ 'html5player.html?channel=' + stream.channel.name }">${ stream.channel.status }</a></p>
+  //     <p class="info">${ stream.channel.display_name }</p>
+  //   </div>
+  //   `);
+  return htmlToElement('<div class="item element"></div>');
 }
 
 function refreshStreams() {  
