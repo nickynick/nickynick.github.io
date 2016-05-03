@@ -14,8 +14,8 @@ function createStreamElement(stream) {
   return htmlToElement(
     `<div class="item stream">
        <img class="cover" src="${ stream.preview.medium }"></img>
-       <p class="title"><a href="${ 'html5player.html?channel=' + stream.channel.name }">${ stream.channel.status }</a></p>
-       <p class="info">${ stream.channel.display_name }</p>
+       <p class="title"><a href="html5player.html?channel=${ stream.channel.name }" title="${ stream.channel.status }">${ stream.channel.status }</a></p>
+       <p class="info">${ stream.viewers } watching ${ stream.channel.display_name }</p>
      </div>`);
 }
 
