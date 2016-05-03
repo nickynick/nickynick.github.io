@@ -11,10 +11,12 @@ function createSpacerElement() {
 }
 
 function createStreamElement(stream) {
+  var link = 'html5player.html?channel=' + stream.channel.name;
+  
   return htmlToElement(
     `<div class="item stream">
-       <img class="cover" src="${ stream.preview.medium }"></img>
-       <p class="title"><a href="html5player.html?channel=${ stream.channel.name }" title="${ stream.channel.status }">${ stream.channel.status }</a></p>
+       <a href="${ link }"><img class="cover" src="${ stream.preview.medium }"></img></a>
+       <p class="title"><a href="${ link }" title="${ stream.channel.status }">${ stream.channel.status }</a></p>
        <p class="info">${ stream.viewers } watching ${ stream.channel.display_name }</p>
      </div>`);
 }
