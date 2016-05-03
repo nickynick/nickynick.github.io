@@ -20,11 +20,11 @@ html {
 
 .spacer {
   height: 0;
-  margin: 0 10px 0 10px;
+  margin: 0 8px 0 8px;
 }
 
 .stream { 
-  margin: 10px 10px 20px 10px;
+  margin: 8px 8px 12px 8px;
 }
 
 .stream .cover {
@@ -32,7 +32,7 @@ html {
 }
 
 .stream p {
-  margin: 5px 0 5px 0;
+  margin: 8px 0 4px 0;
 
   white-space: nowrap; 
   overflow: hidden; 
@@ -41,14 +41,14 @@ html {
 
 .stream a {
   text-decoration: none;  
+  color: #000;  
 }
 
 .stream .title {
-  font-size: 14px;  
-  color: #000;  
+  font-size: 14px;    
 }
 
 .stream .info {
   font-size: 12px;
-  color: #333;
+  color: #888;
 }
