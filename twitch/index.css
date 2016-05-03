@@ -24,7 +24,7 @@ html {
 }
 
 .stream { 
-  margin: 8px 8px 12px 8px;
+  margin: 8px 8px 16px 8px;
 }
 
 .stream .cover {
@@ -32,7 +32,7 @@ html {
 }
 
 .stream p {
-  margin: 8px 0 4px 0;
+  margin: 8px 0 0 0;
 
   white-space: nowrap; 
   overflow: hidden; 
